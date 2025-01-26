@@ -37,6 +37,16 @@ export default function Filters() {
         <section className={`flex flex-col gap-4 py-2 fixed bg-white z-10 w-full left-0 px-4 transition-all duration-300 ${
           scrollDirection === 'down' ? 'top-0' : 'top-14'
         }`}>
+          <div className="flex gap-2 overflow-x-auto max-w-full">
+            {filterButtons.map((filter) => (
+              <button 
+                key={filter}
+                className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap"
+              >
+                {t(`filters.${filter}`)}
+              </button>
+            ))}
+          </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">234 {t('tutors')}</span>
             <div className="flex items-center gap-2">
@@ -48,16 +58,6 @@ export default function Filters() {
                 <SlidersHorizontal className="h-5 w-5" />
               </button>
             </div>
-          </div>
-          <div className="flex gap-2 overflow-x-auto max-w-full">
-            {filterButtons.map((filter) => (
-              <button 
-                key={filter}
-                className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap"
-              >
-                {t(`filters.${filter}`)}
-              </button>
-            ))}
           </div>
         </section>
 
