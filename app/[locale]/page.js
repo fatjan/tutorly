@@ -5,7 +5,7 @@ import BottomNavBar from '../../components/BottomNavBar';
 export default function Home() {
     const tutors = [
         {
-          image: '/laura.jpg',
+          image: 'laura.jpeg',
           name: 'Laura Y.',
           flags: '🇨🇲 🇮🇹',
           description: 'Certified native French tutor...',
@@ -13,7 +13,7 @@ export default function Home() {
           rating: 4.9,
         },
         {
-          image: '/lisa.jpg',
+          image: 'lisa.jpg',
           name: 'Lisa C.',
           flags: '🇫🇷',
           description: 'Make your dream of speaking French...',
@@ -21,7 +21,7 @@ export default function Home() {
           rating: 5.0,
         },
         {
-            image: '/laura.jpg',
+            image: 'laura.jpeg',
             name: 'Laura Y.',
             flags: '🇨🇲 🇮🇹',
             description: 'Certified native French tutor...',
@@ -29,7 +29,7 @@ export default function Home() {
             rating: 4.9,
         },
         {
-            image: '/lisa.jpg',
+            image: 'lisa.jpg',
             name: 'Lisa C.',
             flags: '🇫🇷',
             description: 'Make your dream of speaking French...',
@@ -37,7 +37,7 @@ export default function Home() {
             rating: 5.0,
         },
         {
-            image: '/lisa.jpg',
+            image: 'lisa.jpg',
             name: 'Lisa C.',
             flags: '🇫🇷',
             description: 'Make your dream of speaking French...',
@@ -45,7 +45,7 @@ export default function Home() {
             rating: 5.0,
         },
         {
-            image: '/lisa.jpg',
+            image: 'lisa.jpg',
             name: 'Lisa C.',
             flags: '🇫🇷',
             description: 'Make your dream of speaking French...',
@@ -53,7 +53,7 @@ export default function Home() {
             rating: 5.0,
         },
         {
-            image: '/laura.jpg',
+            image: 'laura.jpeg',
             name: 'Laura Y.',
             flags: '🇨🇲 🇮🇹',
             description: 'Certified native French tutor...',
@@ -61,7 +61,7 @@ export default function Home() {
             rating: 4.9,
         },
         {
-            image: '/laura.jpg',
+            image: 'laura.jpeg',
             name: 'Laura Y.',
             flags: '🇨🇲 🇮🇹',
             description: 'Certified native French tutor...',
@@ -69,7 +69,7 @@ export default function Home() {
             rating: 4.9,
         },
         {
-            image: '/laura.jpg',
+            image: 'laura.jpeg',
             name: 'Laura Y.',
             flags: '🇨🇲 🇮🇹',
             description: 'Certified native French tutor...',
@@ -77,7 +77,7 @@ export default function Home() {
             rating: 4.9,
         },
         {
-            image: '/laura.jpg',
+            image: 'laura.jpeg',
             name: 'Laura Y.',
             flags: '🇨🇲 🇮🇹',
             description: 'Certified native French tutor...',

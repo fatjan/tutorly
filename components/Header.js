@@ -6,7 +6,7 @@ import { Heart } from 'lucide-react';
 
 export default function Header() {
   const scrollDirection = useScrollDirection();
-
+  console.log('scrollDirection', scrollDirection);
   return (
     <header 
       className={`px-4 py-2 flex justify-between items-center fixed w-full bg-white z-20 transition-transform duration-300 ${

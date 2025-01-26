@@ -4,7 +4,7 @@ export default function TutorCard({ tutor }) {
         <img
           src={tutor.image}
           alt={tutor.name}
-          className="w-16 h-16 rounded-full"
+          className="w-20 h-20 object-cover rounded-lg"
         />
         <div className="ml-4 flex-grow">
           <h3 className="font-bold text-lg">
