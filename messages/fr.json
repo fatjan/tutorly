@@ -1,0 +1,10 @@
+{
+  "filters": {
+    "language": "Français",
+    "beginnerFriendly": "Débutant",
+    "nativeSpeaker": "Locuteur natif",
+    "professionalTeacher": "Professeur professionnel",
+    "businessFrench": "Français des affaires",
+    "testPrep": "Préparation aux examens"
+  }
+} 

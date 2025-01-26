@@ -1,6 +1,8 @@
-import TutorCard from '../components/TutorCard';
+import TutorCard from '../../components/TutorCard';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
+  const t = useTranslations();
   const tutors = [
     {
       image: '/laura.jpg',
@@ -24,39 +26,21 @@ export default function Home() {
     <div>
       <header className="p-4 border-b flex justify-between">
         <div className="px-4">
-          <div className="flex items-center gap-1">
-            <h1 className="text-xl font-semibold">French</h1>
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              strokeWidth={1.5} 
-              stroke="currentColor" 
-              className="w-5 h-5"
-            >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                d="M19.5 8.25l-7.5 7.5-7.5-7.5" 
-              />
-            </svg>
-          </div>
-          
           <div className="flex gap-2 overflow-x-auto py-2">
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              Beginner Friendly
+              {t('filters.beginnerFriendly')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              Native Speaker
+              {t('filters.nativeSpeaker')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              Professional Teacher
+              {t('filters.professionalTeacher')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              Business French
+              {t('filters.businessFrench')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              Test Prep
+              {t('filters.testPrep')}
             </button>
           </div>
         </div>
