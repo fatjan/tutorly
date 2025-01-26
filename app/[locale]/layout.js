@@ -20,20 +20,16 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params }) {
-  const locale = await Promise.resolve(params?.locale);
-
+  const { locale } = await params
+  
   if (!locale || !messages[locale]) {
     notFound();
   }
 
   return (
-    <html lang={locale}>
-      <body suppressHydrationWarning={true}>
-        <NextIntlClientProvider locale={locale} messages={messages[locale]}>
-          <Header />
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <div>
+      <Header />
+      {children}
+    </div>
   );
 } 
