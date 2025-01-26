@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useState } from 'react';
 import { SlidersHorizontal } from 'lucide-react';
+import SortButton from '@/components/SortButton';
 
 export default function Filters() {
   const t = useTranslations();
@@ -16,14 +17,17 @@ export default function Filters() {
     'native',
     'super'
   ];
-  
+
   const sortOptions = [
-    'Most Popular',
-    'Price: Low to High',
-    'Price: High to Low',
-    'Top Rated',
-    'Most Experienced'
+    t('sortOptions.priceLowestFirst'),
+    t('sortOptions.priceHighestFirst'),
+    t('sortOptions.popularity'),
+    t('sortOptions.reviews'),
+    t('sortOptions.rating'),
+    t('sortOptions.sortByRelevance')
   ];
+
+  const [selectedSort, setSelectedSort] = useState(sortOptions[0]);
 
   return (
     <div className={`sticky transition-all duration-300 bg-white z-10 border-b ${
@@ -36,7 +40,7 @@ export default function Filters() {
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">234 tutors</span>
             <div className="flex items-center gap-2">
-              <h2 className="font-semibold">Sort by</h2>
+              <h2 className="font-semibold">{selectedSort}</h2>
               <button
                 onClick={() => setIsOpen(true)}
                 className="p-2"
@@ -58,32 +62,13 @@ export default function Filters() {
         </section>
 
         {/* Bottom Sheet Modal */}
-        {isOpen && (
-          <>
-            <div 
-              className="fixed inset-0 bg-black bg-opacity-25 z-50"
-              onClick={() => setIsOpen(false)}
-            />
-            <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 transition-transform duration-300">
-              <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-              <h3 className="text-lg font-semibold mb-4">Sort by</h3>
-              <div className="space-y-4">
-                {sortOptions.map((option) => (
-                  <button
-                    key={option}
-                    className="w-full text-left py-2 hover:bg-gray-50"
-                    onClick={() => {
-                      // Handle sort option selection here
-                      setIsOpen(false);
-                    }}
-                  >
-                    {option}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+        <SortButton 
+          isOpen={isOpen} 
+          setIsOpen={setIsOpen} 
+          t={t} 
+          sortOptions={sortOptions} 
+          setSelectedSort={setSelectedSort} 
+        />
       </div>
     </div>
   );
