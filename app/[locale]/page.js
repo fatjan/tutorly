@@ -1,44 +1,45 @@
+import Filters from '../../components/Filters';
 import TutorCard from '../../components/TutorCard';
-import { useTranslations } from 'next-intl';
-import BottomNavBar from '../components/BottomNavBar';
+import BottomNavBar from '../../components/BottomNavBar';
 
 export default function Home() {
-  const t = useTranslations('filters');
-  const tutors = [
-    {
-      image: '/laura.jpg',
-      name: 'Laura Y.',
-      flags: '🇨🇲 🇮🇹',
-      description: 'Certified native French tutor...',
-      price: 35,
-      rating: 4.9,
-    },
-    {
-      image: '/lisa.jpg',
-      name: 'Lisa C.',
-      flags: '🇫🇷',
-      description: 'Make your dream of speaking French...',
-      price: 27,
-      rating: 5.0,
-    },
-  ];
-
-  const filterButtons = [
-    'price',
-    'countryOfBirth',
-    'native',
-    'super'
-  ];
-  
-  const sortOptions = [
-    'Relevance',
-    'Price: Low to High',
-    'Price: High to Low'
-  ];
-
+    const tutors = [
+        {
+          image: '/laura.jpg',
+          name: 'Laura Y.',
+          flags: '🇨🇲 🇮🇹',
+          description: 'Certified native French tutor...',
+          price: 35,
+          rating: 4.9,
+        },
+        {
+          image: '/lisa.jpg',
+          name: 'Lisa C.',
+          flags: '🇫🇷',
+          description: 'Make your dream of speaking French...',
+          price: 27,
+          rating: 5.0,
+        },
+        {
+            image: '/laura.jpg',
+            name: 'Laura Y.',
+            flags: '🇨🇲 🇮🇹',
+            description: 'Certified native French tutor...',
+            price: 35,
+            rating: 4.9,
+          },
+          {
+            image: '/lisa.jpg',
+            name: 'Lisa C.',
+            flags: '🇫🇷',
+            description: 'Make your dream of speaking French...',
+            price: 27,
+            rating: 5.0,
+          },
+      ];
   return (
     <div>
-      <header className="p-4 border-b flex justify-between">
+      {/* <header className="p-4 border-b flex justify-between">
         <div className="px-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex flex-col gap-2">
@@ -67,8 +68,9 @@ export default function Home() {
           </div>
         </div>
         <button className="text-sm text-blue-500">Filters</button>
-      </header>
+      </header> */}
       <main>
+        <Filters />
         {tutors.map((tutor, index) => (
           <TutorCard key={index} tutor={tutor} />
         ))}
