@@ -1,10 +1,9 @@
 {
   "filters": {
     "language": "English",
-    "beginnerFriendly": "Beginner Friendly",
-    "nativeSpeaker": "Native Speaker",
-    "professionalTeacher": "Professional Teacher",
-    "businessFrench": "Business French",
-    "testPrep": "Test Prep"
+    "price": "Price",
+    "countryOfBirth": "Country of Birth",
+    "native": "Native",
+    "super": "Super"
   }
 }

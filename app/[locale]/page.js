@@ -28,19 +28,16 @@ export default function Home() {
         <div className="px-4">
           <div className="flex gap-2 overflow-x-auto py-2">
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              {t('filters.beginnerFriendly')}
+              {t('filters.price')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              {t('filters.nativeSpeaker')}
+              {t('filters.countryOfBirth')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              {t('filters.professionalTeacher')}
+              {t('filters.native')}
             </button>
             <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              {t('filters.businessFrench')}
-            </button>
-            <button className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap">
-              {t('filters.testPrep')}
+              {t('filters.super')}
             </button>
           </div>
         </div>
