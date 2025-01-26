@@ -15,5 +15,11 @@
     "reviews": "Reviews",
     "rating": "Rating",
     "sortByRelevance": "Sort by relevance"
+  },
+  "buttomNavigation": {
+    "search": "Search",
+    "messages": "Messages",
+    "schedule": "Schedule",
+    "vocab": "Vocab"
   }
 }

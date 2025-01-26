@@ -5,14 +5,18 @@ import Header from '@/components/Header';
 // Import messages directly
 import en from '../../messages/en.json';
 import fr from '../../messages/fr.json';
+import id from '../../messages/id.json';
+import de from '../../messages/de.json';
 
 const messages = {
     en,
     fr,
+    id,
+    de
 }
 
 export function generateStaticParams() {
-  return [{ locale: 'en' }, { locale: 'fr' }];
+  return [{ locale: 'en' }, { locale: 'fr' }, { locale: 'id' }, { locale: 'de' }];
 }
 
 export default async function LocaleLayout({ children, params }) {

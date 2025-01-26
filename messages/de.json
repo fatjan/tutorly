@@ -1,0 +1,26 @@
+{
+    "filters": {
+      "language": "Deutsch",
+      "price": "Preis",
+      "countryOfBirth": "Geburtsland",
+      "native": "Muttersprachler",
+      "super": "Super"
+    },
+    "tutors": "Tutoren",
+    "sortTutorsBy": "Tutoren sortieren nach",
+    "sortOptions": {
+      "priceLowestFirst": "Preis: niedrigster zuerst",
+      "priceHighestFirst": "Preis: höchster zuerst",
+      "popularity": "Beliebtheit",
+      "reviews": "Bewertungen",
+      "rating": "Bewertung",
+      "sortByRelevance": "Nach Relevanz sortieren"
+    },
+    "buttomNavigation": {
+      "search": "Suchen",
+      "messages": "Nachrichten",
+      "schedule": "Zeitplan",
+      "vocab": "Vokabeln"
+    }
+  }
+  

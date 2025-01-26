@@ -1,0 +1,26 @@
+{
+    "filters": {
+      "language": "Bahasa Indonesia",
+      "price": "Harga",
+      "countryOfBirth": "Negara Kelahiran",
+      "native": "Penutur Asli",
+      "super": "Super"
+    },
+    "tutors": "tutor",
+    "sortTutorsBy": "Urutkan tutor berdasarkan",
+    "sortOptions": {
+      "priceLowestFirst": "Harga: terendah terlebih dahulu",
+      "priceHighestFirst": "Harga: tertinggi terlebih dahulu",
+      "popularity": "Popularitas",
+      "reviews": "Ulasan",
+      "rating": "Peringkat",
+      "sortByRelevance": "Urutkan berdasarkan relevansi"
+    },
+    "buttomNavigation": {
+      "search": "Cari",
+      "messages": "Pesan",
+      "schedule": "Jadwal",
+      "vocab": "Kosakata"
+    }
+  }
+  

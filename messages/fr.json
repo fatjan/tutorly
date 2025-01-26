@@ -1,9 +1,26 @@
 {
     "filters": {
-        "language": "Français",
-        "price": "Prix",
-        "countryOfBirth": "Pays de Naissance",
-        "native": "Natif",
-        "super": "Super"
+      "language": "Français",
+      "price": "Prix",
+      "countryOfBirth": "Pays de Naissance",
+      "native": "Natif",
+      "super": "Super"
+    },
+    "tutors": "tuteurs",
+    "sortTutorsBy": "Trier les tuteurs par",
+    "sortOptions": {
+      "priceLowestFirst": "Prix : du plus bas au plus élevé",
+      "priceHighestFirst": "Prix : du plus élevé au plus bas",
+      "popularity": "Popularité",
+      "reviews": "Avis",
+      "rating": "Évaluation",
+      "sortByRelevance": "Trier par pertinence"
+    },
+    "buttomNavigation": {
+        "search": "Recherche",
+        "messages": "Messages",
+        "schedule": "Planning",
+        "vocab": "Vocabulaire"
     }
-}
+  }
+  

@@ -38,7 +38,7 @@ export default function Filters() {
           scrollDirection === 'down' ? 'top-0' : 'top-14'
         }`}>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">234 tutors</span>
+            <span className="text-sm text-gray-600">234 {t('tutors')}</span>
             <div className="flex items-center gap-2">
               <h2 className="font-semibold">{selectedSort}</h2>
               <button
