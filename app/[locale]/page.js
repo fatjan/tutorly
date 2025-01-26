@@ -1,6 +1,6 @@
 import TutorCard from '../../components/TutorCard';
 import { useTranslations } from 'next-intl';
-import { Search, MessageCircle, Calendar, BookOpen } from 'lucide-react';
+import BottomNavBar from '../components/BottomNavBar';
 
 export default function Home() {
   const t = useTranslations('filters');
@@ -73,24 +73,7 @@ export default function Home() {
           <TutorCard key={index} tutor={tutor} />
         ))}
       </main>
-      <footer className="fixed bottom-0 w-full bg-white p-4 flex justify-around border-t">
-        <button className="text-gray-500">
-            <Search className="h-5 w-5" />
-            <span>Search</span>
-        </button>
-        <button className="text-gray-500">
-            <MessageCircle className="h-5 w-5" />
-            <span>Messages</span>
-          </button>
-        <button className="text-gray-500">
-            <Calendar className="h-5 w-5" />
-            <span>Schedule</span>
-        </button>
-        <button className="text-gray-500">
-            <BookOpen className="h-5 w-5" />
-            <span>Vocab</span>
-        </button>
-      </footer>
+      <BottomNavBar />
     </div>
   );
 }
