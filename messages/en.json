@@ -5,5 +5,7 @@
     "countryOfBirth": "Country of Birth",
     "native": "Native",
     "super": "Super"
-  }
+  },
+  "tutors": "tutors",
+  "sortBy": "Sort by"
 }

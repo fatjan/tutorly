@@ -1,6 +1,6 @@
-import Filters from '../../components/Filters';
-import TutorCard from '../../components/TutorCard';
-import BottomNavBar from '../../components/BottomNavBar';
+import Filters from '@/components/Filters';
+import TutorCard from '@/components/TutorCard';
+import BottomNavBar from '@/components/BottomNavBar';
 
 export default function Home() {
     const tutors = [
