@@ -12,7 +12,7 @@ export default function TutorCard({ tutor }) {
         <div className="flex justify-between items-center">
           <h3 className="font-bold text-xl flex justify-between">{tutor.name} {
               tutor.flags.length > 0 && tutor.flags.map((flag, index) => (
-                <span key={index} className="ml-2 mr-2">{flag}</span>
+                <span key={index} className="ml-1 mr-1">{flag}</span>
               ))
             } 
             <ShieldCheckIcon className="w-5 h-5 fill-black text-white" />
