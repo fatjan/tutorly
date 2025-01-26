@@ -1,8 +1,5 @@
-import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
 
-// Import messages directly
 import en from '../../messages/en.json';
 import fr from '../../messages/fr.json';
 import id from '../../messages/id.json';
@@ -20,7 +17,7 @@ export function generateStaticParams() {
 }
 
 export default async function LocaleLayout({ children, params }) {
-  const { locale } = await params
+  const { locale } = await params;
   
   if (!locale || !messages[locale]) {
     notFound();
@@ -28,7 +25,6 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <div>
-      <Header />
       {children}
     </div>
   );

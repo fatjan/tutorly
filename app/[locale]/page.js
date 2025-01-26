@@ -1,3 +1,4 @@
+import Header from '@/components/Header';
 import Filters from '@/components/Filters';
 import TutorCard from '@/components/TutorCard';
 import BottomNavBar from '@/components/BottomNavBar';
@@ -88,6 +89,7 @@ export default function Home() {
   return (
     <div>
       <main className="h-screen overflow-y-auto">
+        <Header />
         <Filters />
         <div className="pt-20">
           {tutors.map((tutor, index) => (

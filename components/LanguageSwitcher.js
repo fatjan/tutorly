@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
 
   return (
     <button 
-      onClick={() => router.push(`/${locale}/language`)}
+      onClick={() => router.push(`/${locale}/language-selection`)}
       className="flex items-center gap-2"
     >
       <span className="text-2xl">{currentLanguage.flag}</span>

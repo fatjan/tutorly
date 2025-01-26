@@ -7,7 +7,7 @@ import { ChevronRight } from 'lucide-react';
 export default function LanguageSelectionPage() {
   const router = useRouter();
   const pathname = usePathname();
-  const currentLocale = useLocale();
+  // const currentLocale = useLocale();
 
   const languages = [
     { code: "en", name: "English", flag: "🇬🇧" },
@@ -20,15 +20,15 @@ export default function LanguageSelectionPage() {
   ];
 
   const switchLanguage = (newLocale) => {
-    const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
-    router.replace(newPath.replace('/language', ''));
+    // const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    router.replace(pathname.replace('/language-selection', ''));
   };
 
   return (
     <div className="min-h-screen bg-white px-4 py-6">
       <div className="max-w-md mx-auto">
         <button 
-          className="text-gray-500 mb-6"
+          className="text-gray-500 mb-6 relative z-10"
           onClick={() => router.back()}
         >
           <span className="mr-2">←</span> Back

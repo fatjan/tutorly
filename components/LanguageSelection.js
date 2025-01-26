@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const LanguageSelectionPage = () => {
   const languages = [
@@ -16,8 +16,11 @@ const LanguageSelectionPage = () => {
   return (
     <div className="min-h-screen bg-white px-4 py-6">
       <div className="max-w-md mx-auto">
-        <button className="text-gray-500 mb-6">
-          <span className="mr-2">←</span> Back
+        <button 
+          className="text-gray-500 mb-6"
+          onClick={() => router.back()}
+        >
+          <ChevronLeft className="mr-2" />
         </button>
         <h1 className="text-2xl font-bold mb-4">Hi there! What would you like to learn?</h1>
         <div className="space-y-2">
