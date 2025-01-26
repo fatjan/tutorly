@@ -25,8 +25,10 @@ export default function Filters() {
       scrollDirection === 'down' ? 'top-0' : 'top-14'
     }`}>
       <div className="px-4">
-        <section className="flex flex-col gap-4 py-2 sticky top-14 bg-white z-10">
-          <div className="flex gap-2 overflow-x-auto">
+        <section className={`flex flex-col gap-4 py-2 fixed bg-white z-10 w-full left-0 px-4 transition-all duration-300 ${
+          scrollDirection === 'down' ? 'top-0' : 'top-14'
+        }`}>
+          <div className="flex gap-2 overflow-x-auto max-w-full">
             {filterButtons.map((filter) => (
               <button 
                 key={filter}

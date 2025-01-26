@@ -83,15 +83,17 @@ export default function Home() {
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
-        },
+        }, 
       ];
   return (
     <div>
-      <main>
+      <main className="h-screen overflow-y-auto">
         <Filters />
-        {tutors.map((tutor, index) => (
-          <TutorCard key={index} tutor={tutor} />
-        ))}
+        <div className="pt-20">
+          {tutors.map((tutor, index) => (
+            <TutorCard key={index} tutor={tutor} />
+          ))}
+        </div>
       </main>
       <BottomNavBar />
     </div>
