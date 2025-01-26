@@ -8,7 +8,7 @@ export default function Home() {
         {
           image: 'laura.jpeg',
           name: 'Laura Y.',
-          flags: '🇨🇲 🇮🇹',
+          flags: ['🇨🇲', '🇮🇹'],
           description: 'Certified native French tutor...',
           price: 35,
           rating: 4.9,
@@ -16,7 +16,7 @@ export default function Home() {
         {
           image: 'lisa.jpg',
           name: 'Lisa C.',
-          flags: '🇫🇷',
+          flags: ['🇫🇷'],
           description: 'Make your dream of speaking French...',
           price: 27,
           rating: 5.0,
@@ -24,7 +24,7 @@ export default function Home() {
         {
             image: 'laura.jpeg',
             name: 'Laura Y.',
-            flags: '🇨🇲 🇮🇹',
+            flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
@@ -32,7 +32,7 @@ export default function Home() {
         {
             image: 'lisa.jpg',
             name: 'Lisa C.',
-            flags: '🇫🇷',
+            flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
             rating: 5.0,
@@ -40,7 +40,7 @@ export default function Home() {
         {
             image: 'lisa.jpg',
             name: 'Lisa C.',
-            flags: '🇫🇷',
+            flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
             rating: 5.0,
@@ -48,7 +48,7 @@ export default function Home() {
         {
             image: 'lisa.jpg',
             name: 'Lisa C.',
-            flags: '🇫🇷',
+            flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
             rating: 5.0,
@@ -56,7 +56,7 @@ export default function Home() {
         {
             image: 'laura.jpeg',
             name: 'Laura Y.',
-            flags: '🇨🇲 🇮🇹',
+            flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
@@ -64,7 +64,7 @@ export default function Home() {
         {
             image: 'laura.jpeg',
             name: 'Laura Y.',
-            flags: '🇨🇲 🇮🇹',
+            flags: ['🇨🇲', '🇮🇹'] ,
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
@@ -72,7 +72,7 @@ export default function Home() {
         {
             image: 'laura.jpeg',
             name: 'Laura Y.',
-            flags: '🇨🇲 🇮🇹',
+            flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
@@ -80,7 +80,7 @@ export default function Home() {
         {
             image: 'laura.jpeg',
             name: 'Laura Y.',
-            flags: '🇨🇲 🇮🇹',
+            flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
             rating: 4.9,
