@@ -1,6 +1,3 @@
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-
 import { Inter } from 'next/font/google';
 import "./globals.css";
 
@@ -12,8 +9,6 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const messages = await getMessages();
-
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
@@ -24,10 +19,8 @@ export default async function RootLayout({ children }) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
-      <body className={inter.className}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+      <body>
+        {children}
       </body>
     </html>
   );

@@ -1,30 +1,28 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useState } from 'react';
 import { SlidersHorizontal } from 'lucide-react';
 import SortButton from '@/components/SortButton';
 
 export default function Filters() {
-  const t = useTranslations();
   const scrollDirection = useScrollDirection();
   const [isOpen, setIsOpen] = useState(false);
   
   const filterButtons = [
-    'price',
-    'countryOfBirth',
-    'native',
-    'super'
+    'Price',
+    'Country Of Birth',
+    'Native',
+    'Super'
   ];
 
   const sortOptions = [
-    t('sortOptions.priceLowestFirst'),
-    t('sortOptions.priceHighestFirst'),
-    t('sortOptions.popularity'),
-    t('sortOptions.reviews'),
-    t('sortOptions.rating'),
-    t('sortOptions.sortByRelevance')
+    'Price: lowest first',
+    'Price: highest first',
+    'Popularity',
+    'Reviews',
+    'Rating',
+    'Sort by relevance'
   ];
 
   const [selectedSort, setSelectedSort] = useState(sortOptions[0]);
@@ -43,12 +41,12 @@ export default function Filters() {
                 key={filter}
                 className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap"
               >
-                {t(`filters.${filter}`)}
+                {filter}
               </button>
             ))}
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">234 {t('tutors')}</span>
+            <span className="text-sm text-gray-600">234 tutors</span>
             <div className="flex items-center gap-2">
               <h2 className="font-semibold">{selectedSort}</h2>
               <button
@@ -65,7 +63,6 @@ export default function Filters() {
         <SortButton 
           isOpen={isOpen} 
           setIsOpen={setIsOpen} 
-          t={t} 
           sortOptions={sortOptions} 
           setSelectedSort={setSelectedSort} 
         />

@@ -1,6 +1,6 @@
 'use client';
 
-export default function SortButton({ isOpen, setIsOpen, t, setSelectedSort, sortOptions }) {
+export default function SortButton({ isOpen, setIsOpen, setSelectedSort, sortOptions }) {
   return (
     <>
       {isOpen && (
@@ -11,7 +11,7 @@ export default function SortButton({ isOpen, setIsOpen, t, setSelectedSort, sort
           />
           <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 transition-transform duration-300">
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-4">{t('sortTutorsBy')}</h3>
+            <h3 className="text-lg font-semibold mb-4">Sort tutors by</h3>
             <div className="space-y-4">
               {sortOptions.map((option) => (
                 <button

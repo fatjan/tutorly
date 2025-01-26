@@ -1,22 +1,17 @@
-/** @type {import('next').NextConfig} */
 import withPWA from 'next-pwa'
-import createNextIntl from 'next-intl/plugin'
 
-const withNextIntl = createNextIntl()
+const config = withPWA({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+  experimental: {
+    turboMode: true,  // Turbo mode should be enabled here as a boolean flag
+  },
+  turbo: {
+    enabled: true,  // Turbopack-specific options
+    // Additional Turbopack config options can be added here
+  },
+})
 
-const config = withNextIntl(
-  withPWA({
-    dest: 'public',
-    register: true,
-    skipWaiting: true,
-    disable: process.env.NODE_ENV === 'development',
-    experimental: {
-      turbo: {
-        enabled: true,
-        // Add any specific Turbopack options here
-      }
-    }
-  })
-)
-
-export default config
+export default config;
