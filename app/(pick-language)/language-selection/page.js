@@ -1,11 +1,10 @@
 'use client';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { LanguageCard, LanguageCardContent } from '@/components/LanguageCard';
 import { ArrowLeft,ChevronRight } from 'lucide-react';
 
 export default function LanguageSelectionPage() {
   const router = useRouter();
-  const pathname = usePathname();
 
   const languages = [
     { code: "en", name: "English", flag: "🇬🇧" },
@@ -18,7 +17,7 @@ export default function LanguageSelectionPage() {
   ];
 
   const switchLanguage = () => {
-    router.replace(pathname.replace('/language-selection', ''));
+    router.replace('language-selection');
   };
 
   return (
