@@ -1,13 +1,11 @@
 'use client';
 import { useRouter, usePathname } from 'next/navigation';
-import { useLocale } from 'next-intl';
 import { LanguageCard, LanguageCardContent } from '@/components/LanguageCard';
-import { ChevronRight } from 'lucide-react';
+import { ArrowLeft,ChevronRight } from 'lucide-react';
 
 export default function LanguageSelectionPage() {
   const router = useRouter();
   const pathname = usePathname();
-  // const currentLocale = useLocale();
 
   const languages = [
     { code: "en", name: "English", flag: "🇬🇧" },
@@ -31,7 +29,7 @@ export default function LanguageSelectionPage() {
           className="text-gray-500 mb-6 relative z-10"
           onClick={() => router.back()}
         >
-          <span className="mr-2">←</span> Back
+          <ArrowLeft className="h-5 w-5 text-gray-400" />
         </button>
         <h1 className="text-2xl font-bold mb-4">Hi there! What would you like to learn?</h1>
         <div className="space-y-2">
@@ -41,12 +39,14 @@ export default function LanguageSelectionPage() {
               className="border rounded-md shadow-sm"
               onClick={() => switchLanguage(language.code)}
             >
-              <LanguageCardContent className="flex items-center justify-between p-4">
+              <LanguageCardContent className="flex items-center justify-between w-full p-4">
                 <div className="flex items-center">
                   <span className="text-2xl mr-4">{language.flag}</span>
                   <span className="text-lg font-medium">{language.name}</span>
+                  <div className="ml-auto">
+                    <ChevronRight className="text-gray-400" />
+                  </div>
                 </div>
-                <ChevronRight className="text-gray-400" />
               </LanguageCardContent>
             </LanguageCard>
           ))}
