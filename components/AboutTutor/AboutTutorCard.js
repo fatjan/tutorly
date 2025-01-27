@@ -4,6 +4,7 @@ import TutorBadges from "@/components/AboutTutor/TutorBadges";
 import TutorRefundable from "@/components/AboutTutor/TutorRefundable";
 import AboutMe from "@/components/AboutTutor/AboutMe";
 import Reviews from "@/components/AboutTutor/Reviews";
+
 const AboutTutorCard = () => {
   return (
     <Card className="w-full border-none p-0">
