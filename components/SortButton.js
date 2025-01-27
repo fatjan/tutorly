@@ -1,6 +1,15 @@
 'use client';
 
-export default function SortButton({ isOpen, setIsOpen, setSelectedSort, sortOptions }) {
+import { Check } from 'lucide-react';
+
+export default function SortButton({ isOpen, setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
+  const bottomBorder = (index) => {
+    if (index !== sortOptions.length - 1) {
+      return 'border-b border-gray-200';
+    }
+    return '';
+  }
+
   return (
     <>
       {isOpen && (
@@ -12,17 +21,24 @@ export default function SortButton({ isOpen, setIsOpen, setSelectedSort, sortOpt
           <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 transition-transform duration-300">
             <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
             <h3 className="text-lg font-semibold mb-4">Sort tutors by</h3>
-            <div className="space-y-4">
-              {sortOptions.map((option) => (
+            <div>
+              {sortOptions.map((option, index) => (
                 <button
                   key={option}
-                  className="w-full text-left py-2 hover:bg-gray-50"
+                  className="w-full text-left hover:bg-gray-50"
                   onClick={() => {
                     setSelectedSort(option);
                     setIsOpen(false);
                   }}
                 >
-                  {option}
+                  <div 
+                    className={`flex items-center justify-between py-2 ${bottomBorder(index)}`}
+                  >
+                    {option}
+                    {selectedSort === option && (
+                      <Check className="text-black-500" />
+                    )}
+                  </div>
                 </button>
               ))}
             </div>

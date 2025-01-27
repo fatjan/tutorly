@@ -65,6 +65,7 @@ export default function Filters() {
           setIsOpen={setIsOpen} 
           sortOptions={sortOptions} 
           setSelectedSort={setSelectedSort} 
+          selectedSort={selectedSort}
         />
       </div>
     </div>
