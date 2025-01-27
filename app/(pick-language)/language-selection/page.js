@@ -27,7 +27,7 @@ export default function LanguageSelectionPage() {
           className="text-gray-500 mb-6 relative z-10"
           onClick={() => router.back()}
         >
-          <ArrowLeft className="h-5 w-5 text-gray-400" />
+          <ArrowLeft id="arrow-left-switch-language" className="h-5 w-5 text-gray-400" />
         </button>
         <h1 className="text-2xl font-bold mb-4">Hi there! What would you like to learn?</h1>
         <div className="space-y-2">
