@@ -2,7 +2,7 @@
 
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useState } from 'react';
-import { SlidersHorizontal } from 'lucide-react';
+import { ArrowDownWideNarrow } from 'lucide-react';
 import SortButton from '@/components/SortButton';
 
 export default function Filters() {
@@ -53,7 +53,7 @@ export default function Filters() {
                 onClick={() => setIsOpen(true)}
                 className="p-2"
               >
-                <SlidersHorizontal className="h-5 w-5" />
+                <ArrowDownWideNarrow className="h-5 w-5" />
               </button>
             </div>
           </div>
