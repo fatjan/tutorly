@@ -17,8 +17,7 @@ export default function LanguageSelectionPage() {
     { code: "ko", name: "Korean", flag: "🇰🇷" },
   ];
 
-  const switchLanguage = (newLocale) => {
-    // const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+  const switchLanguage = () => {
     router.replace(pathname.replace('/language-selection', ''));
   };
 

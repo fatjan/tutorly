@@ -1,7 +1,7 @@
 import { ShieldCheckIcon } from 'lucide-react';
 import { Heart, User, Quote } from 'lucide-react';
 
-export default function TutorCard({ tutor }) {
+export default function TutorCard({ tutor, onClick }) {
   // truncate languages to 2
   const maxVisibleLanguages = 2; 
   const totalLanguages = tutor.languages.length;
@@ -9,7 +9,10 @@ export default function TutorCard({ tutor }) {
   const additionalCount = totalLanguages > maxVisibleLanguages ? ` +${totalLanguages - maxVisibleLanguages}` : '';
 
   return (
-    <div className="flex flex-col p-4 border-b">
+    <div 
+      className="flex flex-col p-4 border-b cursor-pointer hover:shadow-lg hover:bg-gray-100 transition" 
+      onClick={onClick}
+    >
       <div className="flex items-center">
         <img
           src={tutor.image}
