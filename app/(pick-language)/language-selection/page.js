@@ -51,6 +51,11 @@ export default function LanguageSelectionPage() {
             </LanguageCard>
           ))}
         </div>
+        <div className="bottom-0 left-0 bg-white border-t pt-4">
+          <button className="w-full h-14 text-left">
+            <span className="text-lg underline">Show all</span>
+          </button>
+        </div>
       </div>
     </div>
   );
