@@ -1,7 +1,13 @@
 import { ShieldCheckIcon } from 'lucide-react';
-import { Heart } from 'lucide-react';
+import { Heart, User, Quote } from 'lucide-react';
 
 export default function TutorCard({ tutor }) {
+  // truncate languages to 2
+  const maxVisibleLanguages = 2; 
+  const totalLanguages = tutor.languages.length;
+  const displayedLanguages = tutor.languages.slice(0, maxVisibleLanguages).join(', ');
+  const additionalCount = totalLanguages > maxVisibleLanguages ? ` +${totalLanguages - maxVisibleLanguages}` : '';
+
   return (
     <div className="flex flex-col p-4 border-b">
       <div className="flex items-center">
@@ -36,8 +42,23 @@ export default function TutorCard({ tutor }) {
         </div>
       </div>
       <div className="flex items-center mt-6">
-        <p className="text-sm text-gray-500 text-left font-bold">
+        <p className="text-md text-gray-500 text-left font-bold">
           {tutor.description}
+        </p>
+      </div>
+      <div className="flex items-center mt-2">
+        <User className="text-sm w-3 h-3 fill-black mr-1"/>
+        <p className="text-sm text-gray-500 text-left">
+          {tutor.numberOfStudents} students
+          <span className="mx-1">•</span>
+          {tutor.numberOfLessons} lessons
+        </p>
+      </div>
+      <div className="flex items-center mt-2">
+        <Quote className="text-sm w-3 h-3 fill-black mr-1"/>
+        <p className="text-sm text-gray-500 text-left">
+          Speaks {displayedLanguages}
+          {additionalCount}
         </p>
       </div>
     </div>
