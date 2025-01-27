@@ -1,6 +1,6 @@
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
-import BookTutor from '@/components/AboutTutor/BookTutor';
+import BookTutorButton from '@/components/AboutTutor/BookTutorButton';
 import ReportIssue from '@/components/AboutTutor/ReportIssue';
 export const metadata = {
   title: "Tutor Page",
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
       <body className={`${inter.className} antialiased`}>
         {children}
         <ReportIssue />
-        <BookTutor />
+        <BookTutorButton />
       </body>
     </html>
   );
