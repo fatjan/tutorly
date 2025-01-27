@@ -1,5 +1,8 @@
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
+import Header from '@/components/Header';
+import Filters from '@/components/Filters';
+import BottomNavBar from '@/components/BottomNavBar';
 
 export const metadata = {
   title: "Create Next App",
@@ -18,7 +21,10 @@ export default async function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <Header />
+        <Filters />
         {children}
+        <BottomNavBar />
       </body>
     </html>
   );
