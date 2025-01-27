@@ -6,8 +6,10 @@ export default function Home() {
           image: 'laura.jpeg',
           name: 'Laura Y.',
           flags: ['🇨🇲', '🇮🇹'],
-          description: 'Certified native French tutor...',
+          description: 'Certified native French tutor with 10 years of experience making learning fun and easy.',
           price: 35,
+          duration: 50,
+          reviews: 100,
           rating: 4.9,
         },
         {
@@ -16,6 +18,8 @@ export default function Home() {
           flags: ['🇫🇷'],
           description: 'Make your dream of speaking French...',
           price: 27,
+          duration: 50,
+          reviews: 100,
           rating: 5.0,
         },
         {
@@ -24,7 +28,9 @@ export default function Home() {
             flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
-            rating: 4.9,
+            duration: 50,
+            reviews: 100,
+              rating: 4.9,
         },
         {
             image: 'lisa.jpg',
@@ -32,6 +38,8 @@ export default function Home() {
             flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
+            duration: 50,
+            reviews: 100,
             rating: 5.0,
         },
         {
@@ -40,6 +48,8 @@ export default function Home() {
             flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
+            duration: 50,
+            reviews: 100,
             rating: 5.0,
         },
         {
@@ -48,6 +58,8 @@ export default function Home() {
             flags: ['🇫🇷'],
             description: 'Make your dream of speaking French...',
             price: 27,
+            duration: 50,
+            reviews: 100,
             rating: 5.0,
         },
         {
@@ -56,6 +68,8 @@ export default function Home() {
             flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
+            duration: 50,
+            reviews: 100,
             rating: 4.9,
         },
         {
@@ -64,6 +78,8 @@ export default function Home() {
             flags: ['🇨🇲', '🇮🇹'] ,
             description: 'Certified native French tutor...',
             price: 35,
+            duration: 50,
+            reviews: 100,
             rating: 4.9,
         },
         {
@@ -72,6 +88,8 @@ export default function Home() {
             flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
+            duration: 50,
+            reviews: 100,
             rating: 4.9,
         },
         {
@@ -80,6 +98,8 @@ export default function Home() {
             flags: ['🇨🇲', '🇮🇹'],
             description: 'Certified native French tutor...',
             price: 35,
+            duration: 50,
+            reviews: 100,
             rating: 4.9,
         }, 
       ];
