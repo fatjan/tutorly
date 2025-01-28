@@ -2,7 +2,7 @@
 
 import { Check } from 'lucide-react';
 
-export default function SortButtonModal({ isOpen, setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
+export default function SortButtonModal({ setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
   const bottomBorder = (index) => {
     if (index !== sortOptions.length - 1) {
       return 'border-b border-gray-200';
@@ -12,39 +12,35 @@ export default function SortButtonModal({ isOpen, setIsOpen, setSelectedSort, so
 
   return (
     <>
-      {isOpen && (
-        <>
-          <div 
-            className="fixed inset-0 bg-black bg-opacity-25 z-50"
-            onClick={() => setIsOpen(false)}
-          />
-          <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 transition-transform duration-300">
-            <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
-            <h3 className="text-lg font-semibold mb-4">Sort tutors by</h3>
-            <div>
-              {sortOptions.map((option, index) => (
-                <button
-                  key={option}
-                  className="w-full text-left hover:bg-gray-50"
-                  onClick={() => {
-                    setSelectedSort(option);
-                    setIsOpen(false);
-                  }}
-                >
-                  <div 
-                    className={`flex items-center justify-between py-2 ${bottomBorder(index)}`}
-                  >
-                    {option}
-                    {selectedSort === option && (
-                      <Check className="text-black-500" />
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+      <div 
+        className="fixed inset-0 bg-black bg-opacity-25 z-50"
+        onClick={() => setIsOpen(false)}
+      />
+      <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl p-4 z-50 transition-transform duration-300">
+        <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4" />
+        <h3 className="text-lg font-semibold mb-4">Sort tutors by</h3>
+        <div>
+          {sortOptions.map((option, index) => (
+            <button
+              key={option}
+              className="w-full text-left hover:bg-gray-50"
+              onClick={() => {
+                setSelectedSort(option);
+                setIsOpen(false);
+              }}
+            >
+              <div 
+                className={`flex items-center justify-between py-2 ${bottomBorder(index)}`}
+              >
+                {option}
+                {selectedSort === option && (
+                  <Check className="text-black-500" />
+                )}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
     </>
   );
 } 

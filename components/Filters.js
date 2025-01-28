@@ -58,13 +58,14 @@ export default function Filters() {
             </div>
           </div>
         </section>
-        <SortButtonModal 
-          isOpen={isOpen} 
-          setIsOpen={setIsOpen} 
-          sortOptions={sortOptions} 
-          setSelectedSort={setSelectedSort} 
-          selectedSort={selectedSort}
-        />
+        {isOpen && (
+          <SortButtonModal 
+            setIsOpen={setIsOpen} 
+            setSelectedSort={setSelectedSort} 
+            sortOptions={sortOptions} 
+            selectedSort={selectedSort}
+          />
+        )}
       </div>
     </div>
   );
