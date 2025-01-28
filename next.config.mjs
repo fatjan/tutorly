@@ -5,9 +5,9 @@ const config = withPWA({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
-  experimental: {
-    turboMode: false,
-  },
+  // experimental: {
+  //   turboMode: false,
+  // },
 })
 
 export default config;

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+'use client';
+
+import { useState } from 'react';
 import { format, addDays, startOfWeek } from 'date-fns';
 
 export default function Calendar() {

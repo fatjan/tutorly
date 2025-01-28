@@ -5,7 +5,7 @@ export default function SelectTime({times}) {
     const eveningTimes = times.slice(4, 8);
     return (
         <div>
-            <div className="flex flex-col justify-center mt-20">
+            <div className="flex flex-col justify-center">
                 <div className="flex items-left space-x-2">
                     <Sun className="w-6 h-6" />
                     <div>Afternoon</div>
