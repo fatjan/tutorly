@@ -1,4 +1,6 @@
 'use client';
+
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { LanguageCard, LanguageCardContent } from '@/components/LanguageCard';
 import { ArrowLeft,ChevronRight } from 'lucide-react';
@@ -7,18 +9,34 @@ export default function LanguageSelectionPage() {
   const router = useRouter();
 
   const languages = [
-    { code: "en", name: "English", flag: "🇬🇧" },
-    { code: "id", name: "Indonesian", flag: "🇮🇩" },
-    { code: "zh", name: "Chinese (Mandarin)", flag: "🇨🇳" },
-    { code: "es", name: "Spanish", flag: "🇪🇸" },
-    { code: "ja", name: "Japanese", flag: "🇯🇵" },
-    { code: "fr", name: "French", flag: "🇫🇷" },
-    { code: "ko", name: "Korean", flag: "🇰🇷" },
+    { name: "English", flag: "🇬🇧" },
+    { name: "French", flag: "🇫🇷" },
+    { name: "German", flag: "🇩🇪" },
+    { name: "Spanish", flag: "🇪🇸" },
+    { name: "Japanese", flag: "🇯🇵" },
+    { name: "Korean", flag: "🇰🇷" },
+    { name: "Indonesian", flag: "🇮🇩" },
+    { name: "Malaysian", flag: "🇲🇾" },
+    { name: "Chinese (Mandarin)", flag: "🇨🇳" },
+    { name: "Italian", flag: "🇮🇹" },
+    { name: "Dutch", flag: "🇳🇱" },
+    { name: "Portuguese", flag: "🇵🇹" },
+    { name: "Russian", flag: "🇷🇺" },
+    { name: "Arabic", flag: "🇸🇦" },
+    { name: "Thai", flag: "🇹🇭" },
+    { name: "Vietnamese", flag: "🇻🇳" },
   ];
 
   const switchLanguage = () => {
     router.replace('language-selection');
   };
+
+  const initLanguages = languages.slice(0, 6);
+  const [showLanguages, setShowLanguages] = useState(initLanguages);
+
+  const setAllLanguages = () => {
+    setShowLanguages(languages);
+  }
 
   return (
     <div className="min-h-screen bg-white px-4 py-6">
@@ -31,9 +49,9 @@ export default function LanguageSelectionPage() {
         </button>
         <h1 className="text-2xl font-bold mb-4">Hi there! What would you like to learn?</h1>
         <div className="space-y-2">
-          {languages.map((language) => (
+          {showLanguages.map((language, index) => (
             <LanguageCard 
-              key={language.code} 
+              key={index} 
               className="border rounded-md shadow-sm"
               onClick={() => switchLanguage(language.code)}
             >
@@ -50,7 +68,7 @@ export default function LanguageSelectionPage() {
           ))}
         </div>
         <div className="bottom-0 left-0 bg-white border-t pt-4">
-          <button className="w-full h-14 text-left">
+          <button className="w-full h-14 text-left" onClick={setAllLanguages}>
             <span className="text-lg underline">Show all</span>
           </button>
         </div>

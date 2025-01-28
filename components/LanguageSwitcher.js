@@ -1,6 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { ChevronRight } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 export default function LanguageSwitcher() {
   const router = useRouter();
@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
     >
       <span className="text-2xl">{currentLanguage.flag}</span>
       <span className="text-lg font-medium">{currentLanguage.name}</span>
-      <ChevronRight className="h-5 w-5 text-gray-400" />
+      <ChevronDown className="h-5 w-5 text-black-400" />
     </button>
   );
 } 

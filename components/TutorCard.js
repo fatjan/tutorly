@@ -37,7 +37,7 @@ export default function TutorCard({ tutor, onClick }) {
             <div className="flex flex-col items-left">
               <div className="text-sm text-black-500 font-bold">{tutor.rating} ★</div>
               <div className="text-sm text-gray-500">
-                {tutor.reviews} reviews
+                {tutor.numberOfReviews} reviews
               </div>  
             </div>
           </div>
