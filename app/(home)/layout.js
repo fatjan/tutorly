@@ -1,6 +1,6 @@
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
-import Header from '@/components/Header';
+import Header from '@/components/Headers/SearchHeader';
 import Filters from '@/components/Filters';
 import BottomNavBar from '@/components/BottomNavBar';
 

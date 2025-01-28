@@ -21,27 +21,11 @@ export default function TutorPage({}) {
     countryFlag: '🇫🇷',
   }
 
-  const router = useRouter();
 
-  const handleBackClick = () => {
-    if (window.history.state && window.history.state.idx > 0) {
-      router.back(); 
-    } else {
-      router.push('/');
-    }
-  };
   
   return (
     <div className="min-h-screen bg-white px-4 pt-2">
-      <div className="max-w-md md:max-w-lg lg:max-w-xl">
-        <button 
-          className="text-gray-500 mb-6 relative z-10"
-          onClick={handleBackClick}
-        >
-          <ArrowLeft id="arrow-left-tutor-page" className="h-5 w-5 text-gray-400" />
-        </button>
-      </div>
-      <AboutTutorCard />
+      <AboutTutorCard tutor={tutor} />
     </div>
   );
 }

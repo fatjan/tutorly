@@ -1,5 +1,6 @@
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
+import TutorHeader from '@/components/Headers/TutorHeader';
 import BookTutorButton from '@/components/AboutTutor/BookTutorButton';
 import ReportIssue from '@/components/AboutTutor/ReportIssue';
 export const metadata = {
@@ -19,6 +20,7 @@ export default async function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.className} antialiased`}>
+        <TutorHeader />
         {children}
         <ReportIssue />
         <BookTutorButton />
