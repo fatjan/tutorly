@@ -2,7 +2,7 @@
 
 import { Check } from 'lucide-react';
 
-export default function SortButton({ isOpen, setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
+export default function SortButtonModal({ isOpen, setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
   const bottomBorder = (index) => {
     if (index !== sortOptions.length - 1) {
       return 'border-b border-gray-200';

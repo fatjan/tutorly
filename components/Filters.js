@@ -3,7 +3,7 @@
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useState } from 'react';
 import { ArrowDownWideNarrow } from 'lucide-react';
-import SortButton from '@/components/SortButton';
+import SortButtonModal from '@/components/SortButtonModal';
 
 export default function Filters() {
   const scrollDirection = useScrollDirection();
@@ -58,9 +58,7 @@ export default function Filters() {
             </div>
           </div>
         </section>
-
-        {/* Bottom Sheet Modal */}
-        <SortButton 
+        <SortButtonModal 
           isOpen={isOpen} 
           setIsOpen={setIsOpen} 
           sortOptions={sortOptions} 

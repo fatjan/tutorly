@@ -15,7 +15,7 @@ export default function Header() {
     >
       <LanguageSwitcher />
       <button className="p-2">
-        <Heart className="h-6 w-6" />
+        <Heart id="search-heart" className="h-6 w-6" />
       </button>
     </header>
   );
