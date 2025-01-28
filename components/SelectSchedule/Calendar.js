@@ -9,22 +9,25 @@ export default function Calendar() {
 
     const days = Array.from({ length: 7 }, (_, i) => addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), i));
 
+    const activeButtonClass = 'bg-white text-black border border-gray-300 rounded-lg';
+    const inactiveButtonClass = 'bg-black-100 text-gray-700';
+
     return (
-        <div className="p-4 max-w-md mx-auto">
+        <div className="mx-auto w-full md:w-md lg:w-lg xl:w-xl mb-4 mt-20">
             {/* Duration Selector */}
-            <div className="flex bg-gray-100 rounded-lg overflow-hidden mb-4">
+            <div id="duration-selector" className="flex bg-gray-100 rounded-lg overflow-hidden mb-4">
                 <button
                     onClick={() => setDuration(25)}
-                    className={`w-1/2 py-2 text-center ${
-                        duration === 25 ? 'bg-pink-500 text-white' : 'bg-white text-gray-700'
+                    className={`w-1/2 py-2 text-center font-medium font-bold ${
+                        duration === 25 ? activeButtonClass : inactiveButtonClass
                     }`}
                 >
                     25 min
                 </button>
                 <button
                     onClick={() => setDuration(50)}
-                    className={`w-1/2 py-2 text-center ${
-                        duration === 50 ? 'bg-pink-500 text-white' : 'bg-white text-gray-700'
+                    className={`w-1/2 py-2 text-center font-medium font-bold ${
+                        duration === 50 ? activeButtonClass : inactiveButtonClass
                     }`}
                 >
                     50 min
@@ -32,10 +35,10 @@ export default function Calendar() {
             </div>
 
             {/* Calendar */}
-            <div className="bg-white rounded-lg shadow p-4">
+            <div id="calendar" className="bg-white rounded-lg shadow p-4">
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-lg font-semibold">December 2024</h2>
-                    <button className="text-blue-500 font-medium">Today</button>
+                    <button className="text-black-500 font-medium underline">Today</button>
                 </div>
 
                 <div className="grid grid-cols-7 text-center text-gray-500 mb-2">
