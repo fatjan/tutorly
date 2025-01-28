@@ -2,14 +2,14 @@
 
 import { Check } from 'lucide-react';
 
-export default function SortButtonModal({ setIsOpen, setSelectedSort, sortOptions, selectedSort }) {
+export default function SortButtonModal({ setIsOpen, sortOptions, setSelectedSort, selectedSort }) {
   const bottomBorder = (index) => {
     if (index !== sortOptions.length - 1) {
       return 'border-b border-gray-200';
     }
     return '';
   }
-
+  console.log('selectedSort sini', selectedSort)
   return (
     <>
       <div 
@@ -22,7 +22,7 @@ export default function SortButtonModal({ setIsOpen, setSelectedSort, sortOption
         <div>
           {sortOptions.map((option, index) => (
             <button
-              key={option}
+              key={index}
               className="w-full text-left hover:bg-gray-50"
               onClick={() => {
                 setSelectedSort(option);
@@ -32,8 +32,8 @@ export default function SortButtonModal({ setIsOpen, setSelectedSort, sortOption
               <div 
                 className={`flex items-center justify-between py-2 ${bottomBorder(index)}`}
               >
-                {option}
-                {selectedSort === option && (
+                {option.label}
+                {selectedSort.value === option.value && (
                   <Check className="text-black-500" />
                 )}
               </div>

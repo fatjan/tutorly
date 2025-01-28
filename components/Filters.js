@@ -19,19 +19,20 @@ export default function Filters() {
   const sortOptions = [
     {label: 'Price: lowest first', value: 'price:asc'},
     {label: 'Price: highest first', value: 'price:desc'},
-    {label: 'Popularity', value: 'popularity:asc'},
-    {label: 'Reviews', value: 'reviews:asc'},
+    {label: 'Popularity', value: 'numberOfLikes:asc'},
+    {label: 'Reviews', value: 'numberOfReviews:asc'},
     {label: 'Rating', value: 'rating:asc'},
     {label: 'Sort by relevance', value: 'relevance:asc'}
   ];
 
   const [selectedFilter, setSelectedFilter] = useState(filterOptions[0].value)
-  const [selectedSort, setSelectedSort] = useState(sortOptions[0].value);
+  const [selectedSort, setSelectedSort] = useState(sortOptions[0]);
 
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const response = await fetch(`/api/filter-tutors?sort=${selectedSort}`);
+        const sortParam = selectedFilter || 'price:asc';
+        const response = await fetch(`/api/filter-tutors?sort=${sortParam}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -44,7 +45,7 @@ export default function Filters() {
       }
     };
     fetchTutors();
-  }, [selectedSort, selectedFilter]);
+  }, [selectedFilter]);
 
   const saveTutors = (tutors) => {
     localStorage.setItem('tutors', tutors);
@@ -75,22 +76,17 @@ export default function Filters() {
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">234 tutors</span>
-            <div className="flex items-center gap-2">
+            <button className="flex items-center gap-1" onClick={() => setIsOpen(true)}>
               <h2 className="font-semibold">{selectedSort.label}</h2>
-              <button
-                onClick={() => setIsOpen(true)}
-                className="p-2"
-              >
-                <ArrowDownWideNarrow className="h-5 w-5" />
-              </button>
-            </div>
+              <ArrowDownWideNarrow className="h-5 w-5" />
+            </button>
           </div>
         </section>
         {isOpen && (
           <SortButtonModal 
             setIsOpen={setIsOpen} 
-            setSelectedSort={setSelectedSort} 
             sortOptions={sortOptions} 
+            setSelectedSort={setSelectedSort} 
             selectedSort={selectedSort}
           />
         )}
