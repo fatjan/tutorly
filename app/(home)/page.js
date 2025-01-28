@@ -8,22 +8,8 @@ export default function HomeClient() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function fetchTutors() {
-      try {
-        const response = await fetch('/api/tutors');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json(); 
-        setTutors(data.tutors);
-      } catch (error) {
-        console.error('Error fetching tutors:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchTutors();
+    const savedTutors = localStorage.getItem('tutors') || tutors;
+    setTutors(JSON.parse(savedTutors));
   }, []);
 
   const goToTutorPage = (tutorId) => {
@@ -34,7 +20,7 @@ export default function HomeClient() {
     <div>
       <main className="h-screen overflow-y-auto">
         <div className="pt-20">
-          {tutors.map((tutor) => (
+          {tutors.length > 0 && tutors.map((tutor) => (
             <TutorCard 
               key={tutor.id} 
               tutor={tutor} 

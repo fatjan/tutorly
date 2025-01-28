@@ -1,7 +1,7 @@
 'use client';
 
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowDownWideNarrow } from 'lucide-react';
 import SortButtonModal from '@/components/SortButtonModal';
 
@@ -9,23 +9,50 @@ export default function Filters() {
   const scrollDirection = useScrollDirection();
   const [isOpen, setIsOpen] = useState(false);
   
-  const filterButtons = [
-    'Price',
-    'Country Of Birth',
-    'Native',
-    'Super'
+  const filterOptions = [
+    {label: 'Price', value: 'price:asc'},
+    {label: 'Country Of Birth', value: 'countryOfBirth:asc'},
+    {label: 'Native', value: 'native:asc'},
+    {label: 'Super', value: 'super:asc'}
   ];
 
   const sortOptions = [
-    'Price: lowest first',
-    'Price: highest first',
-    'Popularity',
-    'Reviews',
-    'Rating',
-    'Sort by relevance'
+    {label: 'Price: lowest first', value: 'price:asc'},
+    {label: 'Price: highest first', value: 'price:desc'},
+    {label: 'Popularity', value: 'popularity:asc'},
+    {label: 'Reviews', value: 'reviews:asc'},
+    {label: 'Rating', value: 'rating:asc'},
+    {label: 'Sort by relevance', value: 'relevance:asc'}
   ];
 
-  const [selectedSort, setSelectedSort] = useState(sortOptions[0]);
+  const [selectedFilter, setSelectedFilter] = useState(filterOptions[0].value)
+  const [selectedSort, setSelectedSort] = useState(sortOptions[0].value);
+
+  useEffect(() => {
+    const fetchTutors = async () => {
+      try {
+        const response = await fetch(`/api/filter-tutors?sort=${selectedSort}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (data.tutors.length) {
+          saveTutors(JSON.stringify(data.tutors));
+        }
+      } catch (error) {
+        console.error('Error fetching tutors:', error);
+      }
+    };
+    fetchTutors();
+  }, [selectedSort, selectedFilter]);
+
+  const saveTutors = (tutors) => {
+    localStorage.setItem('tutors', tutors);
+  };
+  
+  const buttonBackground = (filter) => {
+    return selectedFilter === filter ? 'bg-gray-200' : 'bg-white';
+  }
 
   return (
     <div className={`sticky transition-all duration-300 bg-white z-10 border-b ${
@@ -36,19 +63,20 @@ export default function Filters() {
           scrollDirection === 'down' ? 'top-0' : 'top-14'
         }`}>
           <div className="flex gap-2 overflow-x-auto max-w-full">
-            {filterButtons.map((filter) => (
+            {filterOptions.map((filter, index) => (
               <button 
-                key={filter}
-                className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md whitespace-nowrap"
+                key={index}
+                className={`px-3 py-1 text-sm ${buttonBackground(filter.value)} border rounded-md whitespace-nowrap`}
+                onClick={() => setSelectedFilter(filter.value)}
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </div>
           <div className="flex justify-between items-center">
             <span className="text-sm text-gray-600">234 tutors</span>
             <div className="flex items-center gap-2">
-              <h2 className="font-semibold">{selectedSort}</h2>
+              <h2 className="font-semibold">{selectedSort.label}</h2>
               <button
                 onClick={() => setIsOpen(true)}
                 className="p-2"
