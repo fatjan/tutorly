@@ -1,6 +1,5 @@
 import '@/app/ui/globals.css';
 import { inter } from '@/app/ui/fonts';
-import ScheduleHeader from '@/components/Headers/ScheduleHeader';
 import BookTutorButton from '@/components/AboutTutor/BookTutorButton';
 
 export const metadata = {
@@ -20,7 +19,6 @@ export default async function RootLayout({ children }) {
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <ScheduleHeader />
         {children}
         <BookTutorButton />
       </body>

@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { format, addDays, startOfWeek } from 'date-fns';
+import { useSelectedData } from '@/contexts/SelectedDataContext';
 
 export default function Calendar() {
-    const [selectedDate, setSelectedDate] = useState(null);
-    const [duration, setDuration] = useState(25); // 25 or 50 minutes
+    const { selectedDuration, setSelectedDuration } = useSelectedData(); 
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const days = Array.from({ length: 7 }, (_, i) => addDays(startOfWeek(new Date(), { weekStartsOn: 1 }), i));
 
@@ -17,17 +18,17 @@ export default function Calendar() {
             {/* Duration Selector */}
             <div id="duration-selector" className="flex bg-gray-100 rounded-lg overflow-hidden mb-4">
                 <button
-                    onClick={() => setDuration(25)}
+                    onClick={() => setSelectedDuration(25)}
                     className={`w-1/2 py-2 text-center font-medium font-bold ${
-                        duration === 25 ? activeButtonClass : inactiveButtonClass
+                        selectedDuration === 25 ? activeButtonClass : inactiveButtonClass
                     }`}
                 >
                     25 min
                 </button>
                 <button
-                    onClick={() => setDuration(50)}
+                    onClick={() => setSelectedDuration(50)}
                     className={`w-1/2 py-2 text-center font-medium font-bold ${
-                        duration === 50 ? activeButtonClass : inactiveButtonClass
+                        selectedDuration === 50 ? activeButtonClass : inactiveButtonClass
                     }`}
                 >
                     50 min
