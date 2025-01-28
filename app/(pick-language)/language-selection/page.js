@@ -27,16 +27,22 @@ export default function LanguageSelectionPage() {
     { name: "Vietnamese", flag: "🇻🇳" },
   ];
 
-  const switchLanguage = () => {
-    router.replace('language-selection');
-  };
-
   const initLanguages = languages.slice(0, 6);
   const [showLanguages, setShowLanguages] = useState(initLanguages);
 
   const setAllLanguages = () => {
     setShowLanguages(languages);
   }
+
+  const saveToLocalStorage = (value) => {
+    localStorage.setItem('selectedLanguage', value);
+  };
+
+  const switchLanguage = (language) => {
+    saveToLocalStorage(language);
+    router.back();
+  };
+
 
   return (
     <div className="min-h-screen bg-white px-4 py-6">
@@ -50,21 +56,25 @@ export default function LanguageSelectionPage() {
         <h1 className="text-2xl font-bold mb-4">Hi there! What would you like to learn?</h1>
         <div className="space-y-2">
           {showLanguages.map((language, index) => (
-            <LanguageCard 
+            <button 
               key={index} 
-              className="border rounded-md shadow-sm"
-              onClick={() => switchLanguage(language.code)}
+              className="w-full"
+              onClick={() => switchLanguage(language.name)}
             >
-              <LanguageCardContent className="flex items-center justify-between w-full p-4">
-                <div className="flex items-center">
-                  <span className="text-2xl mr-4">{language.flag}</span>
-                  <span className="text-lg font-medium">{language.name}</span>
-                  <div className="ml-auto">
-                    <ChevronRight className="text-gray-400" />
+              <LanguageCard 
+                className="border rounded-md shadow-sm"
+              >
+                <LanguageCardContent className="flex items-center justify-between w-full p-4">
+                  <div className="flex items-center">
+                    <span className="text-2xl mr-4">{language.flag}</span>
+                    <span className="text-lg font-medium">{language.name}</span>
+                    <div className="ml-auto">
+                      <ChevronRight className="text-gray-400" />
+                    </div>
                   </div>
-                </div>
-              </LanguageCardContent>
-            </LanguageCard>
+                </LanguageCardContent>
+              </LanguageCard>
+            </button>
           ))}
         </div>
         <div className="bottom-0 left-0 bg-white border-t pt-4">
