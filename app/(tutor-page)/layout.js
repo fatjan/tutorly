@@ -8,7 +8,7 @@ export const metadata = {
   description: "Details of the tutor",
 };
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>

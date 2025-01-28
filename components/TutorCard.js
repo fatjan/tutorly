@@ -4,8 +4,9 @@ import { Heart, User, Quote } from 'lucide-react';
 export default function TutorCard({ tutor, onClick }) {
   // truncate languages to 2
   const maxVisibleLanguages = 2; 
-  const totalLanguages = tutor.languages.length;
-  const displayedLanguages = tutor.languages.slice(0, maxVisibleLanguages).join(', ');
+  const tutorLanguages = tutor.languages.split(',');
+  const totalLanguages = tutorLanguages.length;
+  const displayedLanguages = tutorLanguages.slice(0, maxVisibleLanguages).join(', ');
   const additionalCount = totalLanguages > maxVisibleLanguages ? ` +${totalLanguages - maxVisibleLanguages}` : '';
 
   return (
@@ -21,11 +22,9 @@ export default function TutorCard({ tutor, onClick }) {
         />
         <div className="ml-4 flex-grow">
           <div className="flex justify-between items-center">
-            <h3 className="font-bold text-xl flex justify-between">{tutor.name} {
-                tutor.flags.length > 0 && tutor.flags.map((flag, index) => (
-                  <span key={index} className="ml-1 mr-1">{flag}</span>
-                ))
-              } 
+            <h3 className="font-bold text-xl flex justify-between">
+              {tutor.name} 
+              <span className="ml-1 mr-1">{tutor.countryOfOrigin}</span>
               <ShieldCheckIcon className="w-5 h-5 fill-black text-white" />
             </h3>
             <Heart className="w-5 h-5" />
@@ -33,7 +32,7 @@ export default function TutorCard({ tutor, onClick }) {
           <div className="flex justify-between items-center mt-1">
             <div className="flex flex-col items-left">
               <div className="text-md text-left font-bold">${tutor.price}</div> 
-              <div className="text-sm text-gray-500">{tutor.duration}-min lesson</div>
+              <div className="text-sm text-gray-500">{tutor.numberOfLessons}-min lesson</div>
             </div>
             <div className="flex flex-col items-left">
               <div className="text-sm text-black-500 font-bold">{tutor.rating} ★</div>
@@ -45,7 +44,7 @@ export default function TutorCard({ tutor, onClick }) {
         </div>
       </div>
       <div className="flex items-center mt-6">
-        <p className="text-md text-gray-500 text-left font-bold">
+        <p className="text-md text-black-500 text-left font-bold">
           {tutor.description}
         </p>
       </div>

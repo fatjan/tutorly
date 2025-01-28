@@ -8,6 +8,7 @@ const config = withPWA({
   // experimental: {
   //   turboMode: false,
   // },
+  
 })
 
 export default config;
