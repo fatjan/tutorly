@@ -1,8 +1,8 @@
 'use client';
 
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { useState, useEffect } from 'react';
-import { ArrowDownWideNarrow } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowDownWideNarrow, ArrowDownNarrowWide } from 'lucide-react';
 import SortButtonModal from '@/components/SortButtonModal';
 import useStore from '@/app/lib/store/useStore';
 
@@ -57,7 +57,13 @@ export default function Filters() {
             <span className="text-sm text-gray-600">{totalTutors} tutors</span>
             <button className="flex items-center gap-1" onClick={() => setIsOpen(true)}>
               <h2 className="font-semibold">{selectedSort.label}</h2>
-              <ArrowDownWideNarrow className="h-5 w-5" />
+              {
+                selectedSort.value !== 'price:asc' ? (
+                  <ArrowDownWideNarrow className="h-5 w-5" />
+                ) : (
+                  <ArrowDownNarrowWide className="h-5 w-5" />
+                )
+              }
             </button>
           </div>
         </section>
