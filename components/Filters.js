@@ -1,14 +1,14 @@
 'use client';
 
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowDownWideNarrow } from 'lucide-react';
 import SortButtonModal from '@/components/SortButtonModal';
+import useStore from '@/app/lib/store/useStore';
 
 export default function Filters() {
   const scrollDirection = useScrollDirection();
   const [isOpen, setIsOpen] = useState(false);
-  
   const filterOptions = [
     {label: 'Price', value: 'price:asc'},
     {label: 'Country Of Birth', value: 'countryOfBirth:asc'},
@@ -25,32 +25,14 @@ export default function Filters() {
     {label: 'Sort by relevance', value: 'relevance:asc'}
   ];
 
-  const [selectedFilter, setSelectedFilter] = useState(filterOptions[0].value)
-  const [selectedSort, setSelectedSort] = useState(sortOptions[0]);
-
-  useEffect(() => {
-    const fetchTutors = async () => {
-      try {
-        const sortParam = selectedFilter || 'price:asc';
-        const response = await fetch(`/api/filter-tutors?sort=${sortParam}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        if (data.tutors.length) {
-          saveTutors(JSON.stringify(data.tutors));
-        }
-      } catch (error) {
-        console.error('Error fetching tutors:', error);
-      }
-    };
-    fetchTutors();
-  }, [selectedFilter]);
-
   const saveTutors = (tutors) => {
     localStorage.setItem('tutors', tutors);
   };
-  
+
+  const { setSelectedFilter } = useStore();
+  const selectedSort = useStore((state) => state.selectedSort);
+  const selectedFilter = useStore((state) => state.selectedFilter);
+
   const buttonBackground = (filter) => {
     return selectedFilter === filter ? 'bg-gray-200' : 'bg-white';
   }
@@ -86,7 +68,6 @@ export default function Filters() {
           <SortButtonModal 
             setIsOpen={setIsOpen} 
             sortOptions={sortOptions} 
-            setSelectedSort={setSelectedSort} 
             selectedSort={selectedSort}
           />
         )}

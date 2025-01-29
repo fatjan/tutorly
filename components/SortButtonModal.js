@@ -1,15 +1,18 @@
 'use client';
 
 import { Check } from 'lucide-react';
+import useStore from '@/app/lib/store/useStore';
 
-export default function SortButtonModal({ setIsOpen, sortOptions, setSelectedSort, selectedSort }) {
+export default function SortButtonModal({ setIsOpen, sortOptions, selectedSort }) {
+  const { setSelectedSort } = useStore();
+  
   const bottomBorder = (index) => {
     if (index !== sortOptions.length - 1) {
       return 'border-b border-gray-200';
     }
     return '';
   }
-  console.log('selectedSort sini', selectedSort)
+
   return (
     <>
       <div 

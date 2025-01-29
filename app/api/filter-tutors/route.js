@@ -5,7 +5,7 @@ const API_BASE_URL = process.env.STRAPI_API_URL;
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const sortParam = searchParams.get('sort');
-  console.log('sortParam', sortParam);
+
   const response = await fetch(`${API_BASE_URL}/tutors?sort=${sortParam}`);
   const data = await response.json();
 

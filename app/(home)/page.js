@@ -21,12 +21,12 @@ export default function HomeClient() {
       <main className="h-screen overflow-y-auto">
         <div className="pt-20">
           {tutors.length > 0 && tutors.map((tutor) => (
-            <TutorCard 
-              key={tutor.id} 
-              tutor={tutor} 
-              onClick={() => goToTutorPage(tutor.id)} 
-            />
-          ))}
+          <TutorCard 
+            key={tutor.id} 
+            tutor={tutor} 
+            onClick={() => goToTutorPage(tutor.id)} 
+          />
+        ))}
         </div>
       </main>
     </div>

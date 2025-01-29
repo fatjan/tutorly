@@ -1,13 +1,13 @@
 'use client';
 
-import { SelectedDataProvider } from '@/contexts/SelectedDataContext'; // import context provider
+import { SelectedDataProvider } from '@/contexts/SelectedDataContext';
 import Calendar from '@/components/SelectSchedule/Calendar';
 import SelectTime from '@/components/SelectSchedule/SelectTime';
 import ScheduleHeader from '@/components/Headers/ScheduleHeader';
 
 export default function SelectSchedulePage() {
   return (
-    <SelectedDataProvider> {/* Wrap components with context provider */}
+    <SelectedDataProvider>
       <div className="min-h-screen bg-white px-4 pt-2">
         <ScheduleHeader />
         <Calendar />
