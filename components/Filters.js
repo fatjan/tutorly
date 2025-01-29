@@ -4,8 +4,7 @@ import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useState } from 'react';
 import { ArrowDownWideNarrow, ArrowDownNarrowWide } from 'lucide-react';
 import SortButtonModal from '@/components/SortButtonModal';
-import useStore from '@/app/lib/store/useStore';
-
+import { useStore } from '@/app/lib/store/useStore';
 export default function Filters() {
   const scrollDirection = useScrollDirection();
   const [isOpen, setIsOpen] = useState(false);

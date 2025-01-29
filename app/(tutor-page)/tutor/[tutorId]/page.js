@@ -1,31 +1,37 @@
 'use client';
 
-import { ArrowLeft } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 import AboutTutorCard from '@/components/AboutTutor/AboutTutorCard';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default function TutorPage({}) {
-  const tutor = {
-    image: 'laura.jpeg',
-    name: 'Laura Y.',
-    flags: ['🇨🇲', '🇮🇹'],
-    description: 'Certified native French tutor with 10 years of experience making learning fun and easy.',
-    price: 35,
-    duration: 50,
-    reviews: 100,
-    rating: 4.9,
-    numberOfStudents: 100,
-    numberOfLessons: 100,
-    languages: ['French (Native)', 'English (Native)', 'Spanish (Native)', 'Italian (Native)', 'German (Native)', 'Indonesian (Native)'],
-    country: 'France',
-    countryFlag: '🇫🇷',
-  }
+export default function TutorPage() {
+  const params = useParams();
+  const tutorId = params.tutorId;
+  const [tutor, setTutor] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTutor = async () => {
+      try {
+        const response = await fetch(`/api/tutor?id=${tutorId}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setTutor(data.tutor);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching tutors:', error);
+      }
+    };
+    fetchTutor();
+  }, [tutorId]);
 
 
   
   return (
-    <div className="min-h-screen bg-white px-4 pt-2">
-      <AboutTutorCard tutor={tutor} />
+    <div className="min-h-screen bg-white px-4 pt-20">
+      {loading ? <p>Loading...</p> : <AboutTutorCard tutor={tutor} />}
     </div>
   );
 }

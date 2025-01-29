@@ -17,6 +17,13 @@ const useStore = create((set) => ({
   setSelectedFilter: (filter) => set(() => ({ selectedFilter: filter })),
   isUsingFilter: false,
   setIsUsingFilter: (isUsingFilter) => set(() => ({ isUsingFilter: isUsingFilter })),
+  selectedTutorId: 0,
+  setSelectedTutorId: (tutorId) => set(() => ({ selectedTutorId: tutorId })),
 }))
 
-export default useStore
+const tutor = state => state.tutors.find(tutor => tutor.id === state.selectedTutorId)
+
+export {
+  useStore,
+  tutor,
+}

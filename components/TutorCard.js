@@ -2,9 +2,8 @@ import { ShieldCheckIcon } from 'lucide-react';
 import { Heart, User, Quote } from 'lucide-react';
 
 export default function TutorCard({ tutor, onClick }) {
-  // truncate languages to 2
   const maxVisibleLanguages = 2; 
-  const tutorLanguages = tutor.languages.split(',');
+  const tutorLanguages = tutor?.languages.length ? tutor.languages.split(',') : [];
   const totalLanguages = tutorLanguages.length;
   const displayedLanguages = tutorLanguages.slice(0, maxVisibleLanguages).join(', ');
   const additionalCount = totalLanguages > maxVisibleLanguages ? ` +${totalLanguages - maxVisibleLanguages}` : '';
@@ -24,7 +23,7 @@ export default function TutorCard({ tutor, onClick }) {
           <div className="flex justify-between items-center">
             <h3 className="font-bold text-xl flex justify-between">
               {tutor.name} 
-              <span className="ml-1 mr-1">{tutor.countryOfOrigin}</span>
+              <span className="ml-1 mr-1">{tutor.country}</span>
               <ShieldCheckIcon className="w-5 h-5 fill-black text-white" />
             </h3>
             <Heart className="w-5 h-5" />
@@ -37,7 +36,7 @@ export default function TutorCard({ tutor, onClick }) {
             <div className="flex flex-col items-left">
               <div className="text-sm text-black-500 font-bold">{tutor.rating} ★</div>
               <div className="text-sm text-gray-500">
-                {tutor.numberOfReviews} reviews
+                {tutor.reviews} reviews
               </div>  
             </div>
           </div>
