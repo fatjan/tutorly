@@ -6,7 +6,7 @@
 ## Getting Started
 
 1. Clone the repository
-2. Copy .env.example to .env and fill in the values
+2. Copy .env.example to .env and fill in the values (available upon request)
 3. Run `npm install` to install the dependencies
 4. Run `npm run dev` to start the development server
 5. Run `npm run start` to start the production server   
