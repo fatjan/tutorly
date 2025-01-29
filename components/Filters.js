@@ -25,7 +25,7 @@ export default function Filters() {
     {label: 'Sort by relevance', value: 'relevance:asc'}
   ];
 
-  const { setSelectedFilter, setSelectedSort } = useStore();
+  const { setSelectedFilter, setSelectedSort, setIsUsingFilter } = useStore();
   const selectedSort = useStore((state) => state.selectedSort);
   const selectedFilter = useStore((state) => state.selectedFilter);
   const totalTutors = useStore((state) => state.totalTutors);
@@ -33,6 +33,17 @@ export default function Filters() {
   const buttonBackground = (filter) => {
     return selectedFilter === filter ? 'bg-gray-200' : 'bg-white';
   }
+
+  const updateFilter = (filter) => {
+    setIsUsingFilter(true);
+    setSelectedFilter(filter);
+    setSelectedSort({label: 'Sort by relevance', value: 'relevance:asc'});
+  }
+
+  const updateSort = (sort) => {
+    setIsUsingFilter(false);
+    setSelectedSort(sort);
+  } 
 
   return (
     <div className={`sticky transition-all duration-300 bg-white z-10 border-b ${
@@ -47,7 +58,7 @@ export default function Filters() {
               <button 
                 key={index}
                 className={`px-3 py-1 text-sm ${buttonBackground(filter.value)} border rounded-md whitespace-nowrap`}
-                onClick={() => setSelectedFilter(filter.value)}
+                onClick={() => updateFilter(filter.value)}
               >
                 {filter.label}
               </button>
@@ -72,7 +83,7 @@ export default function Filters() {
             setIsOpen={setIsOpen} 
             sortOptions={sortOptions} 
             selectedSort={selectedSort}
-            setSelectedSort={setSelectedSort}
+            updateSort={updateSort}
           />
         )}
       </div>

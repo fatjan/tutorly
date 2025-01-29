@@ -15,6 +15,8 @@ const useStore = create((set) => ({
   setSelectedSort: (sort) => set(() => ({ selectedSort: sort })),
   selectedFilter: null,
   setSelectedFilter: (filter) => set(() => ({ selectedFilter: filter })),
+  isUsingFilter: false,
+  setIsUsingFilter: (isUsingFilter) => set(() => ({ isUsingFilter: isUsingFilter })),
 }))
 
 export default useStore

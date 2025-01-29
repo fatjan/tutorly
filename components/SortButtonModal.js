@@ -2,7 +2,7 @@
 
 import { Check } from 'lucide-react';
 
-export default function SortButtonModal({ setIsOpen, sortOptions, selectedSort, setSelectedSort }) {
+export default function SortButtonModal({ setIsOpen, sortOptions, selectedSort, updateSort }) {
   const bottomBorder = (index) => {
     if (index !== sortOptions.length - 1) {
       return 'border-b border-gray-200';
@@ -25,7 +25,7 @@ export default function SortButtonModal({ setIsOpen, sortOptions, selectedSort, 
               key={index}
               className="w-full text-left hover:bg-gray-50"
               onClick={() => {
-                setSelectedSort(option);
+                updateSort(option);
                 setIsOpen(false);
               }}
             >

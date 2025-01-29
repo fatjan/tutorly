@@ -5,17 +5,18 @@ import { useEffect } from 'react';
 import useStore from '@/app/lib/store/useStore';
 import { useMemo } from 'react';
 
-export default function HomeClient() {
+export default function HomePage() {
   const { setTutors, setTotalTutors } = useStore();
   const tutors = useStore((state) => state.tutors);
   const memoizedTutors = useMemo(() => tutors, [tutors]);
   const selectedSort = useStore((state) => state.selectedSort);
   const selectedFilter = useStore((state) => state.selectedFilter);
+  const isUsingFilter = useStore((state) => state.isUsingFilter);
 
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const sortParam = selectedSort.value || selectedFilter || 'price:asc';
+        const sortParam = (isUsingFilter ? selectedFilter : selectedSort.value) || 'price:asc';
         const response = await fetch(`/api/filter-tutors?sort=${sortParam}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -28,7 +29,7 @@ export default function HomeClient() {
       }
     };
     fetchTutors();
-  }, [selectedFilter, selectedSort.value]);
+  }, [selectedFilter, selectedSort.value, isUsingFilter, setTotalTutors]);
 
   const goToTutorPage = (tutorId) => {
     router.replace(`/tutor/${tutorId}`);
