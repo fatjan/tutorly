@@ -1,16 +1,34 @@
 'use client';
 
 import TutorCard from '@/components/TutorCard';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import useStore from '@/app/lib/store/useStore';
+import { useMemo } from 'react';
 
 export default function HomeClient() {
-  const [tutors, setTutors] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { setTutors, setTotalTutors } = useStore();
+  const tutors = useStore((state) => state.tutors);
+  const memoizedTutors = useMemo(() => tutors, [tutors]);
+  const selectedSort = useStore((state) => state.selectedSort);
+  const selectedFilter = useStore((state) => state.selectedFilter);
 
   useEffect(() => {
-    const savedTutors = localStorage.getItem('tutors') || tutors;
-    setTutors(JSON.parse(savedTutors));
-  }, []);
+    const fetchTutors = async () => {
+      try {
+        const sortParam = selectedSort.value || selectedFilter || 'price:asc';
+        const response = await fetch(`/api/filter-tutors?sort=${sortParam}`);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setTutors(data.tutors);
+        setTotalTutors(data.total);
+      } catch (error) {
+        console.error('Error fetching tutors:', error);
+      }
+    };
+    fetchTutors();
+  }, [selectedFilter, selectedSort.value]);
 
   const goToTutorPage = (tutorId) => {
     router.replace(`/tutor/${tutorId}`);
@@ -20,7 +38,7 @@ export default function HomeClient() {
     <div>
       <main className="h-screen overflow-y-auto">
         <div className="pt-20">
-          {tutors.length > 0 && tutors.map((tutor) => (
+          {memoizedTutors.length > 0 && memoizedTutors.map((tutor) => (
           <TutorCard 
             key={tutor.id} 
             tutor={tutor} 

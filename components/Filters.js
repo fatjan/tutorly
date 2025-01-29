@@ -1,7 +1,7 @@
 'use client';
 
 import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ArrowDownWideNarrow } from 'lucide-react';
 import SortButtonModal from '@/components/SortButtonModal';
 import useStore from '@/app/lib/store/useStore';
@@ -19,19 +19,16 @@ export default function Filters() {
   const sortOptions = [
     {label: 'Price: lowest first', value: 'price:asc'},
     {label: 'Price: highest first', value: 'price:desc'},
-    {label: 'Popularity', value: 'numberOfLikes:asc'},
-    {label: 'Reviews', value: 'numberOfReviews:asc'},
-    {label: 'Rating', value: 'rating:asc'},
+    {label: 'Popularity', value: 'numberOfLikes:desc'},
+    {label: 'Reviews', value: 'numberOfReviews:desc'},
+    {label: 'Rating', value: 'rating:desc'},
     {label: 'Sort by relevance', value: 'relevance:asc'}
   ];
 
-  const saveTutors = (tutors) => {
-    localStorage.setItem('tutors', tutors);
-  };
-
-  const { setSelectedFilter } = useStore();
+  const { setSelectedFilter, setSelectedSort } = useStore();
   const selectedSort = useStore((state) => state.selectedSort);
   const selectedFilter = useStore((state) => state.selectedFilter);
+  const totalTutors = useStore((state) => state.totalTutors);
 
   const buttonBackground = (filter) => {
     return selectedFilter === filter ? 'bg-gray-200' : 'bg-white';
@@ -57,7 +54,7 @@ export default function Filters() {
             ))}
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-sm text-gray-600">234 tutors</span>
+            <span className="text-sm text-gray-600">{totalTutors} tutors</span>
             <button className="flex items-center gap-1" onClick={() => setIsOpen(true)}>
               <h2 className="font-semibold">{selectedSort.label}</h2>
               <ArrowDownWideNarrow className="h-5 w-5" />
@@ -69,6 +66,7 @@ export default function Filters() {
             setIsOpen={setIsOpen} 
             sortOptions={sortOptions} 
             selectedSort={selectedSort}
+            setSelectedSort={setSelectedSort}
           />
         )}
       </div>
