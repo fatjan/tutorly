@@ -4,10 +4,12 @@ import TutorBadges from "@/components/AboutTutor/TutorBadges";
 import TutorRefundable from "@/components/AboutTutor/TutorRefundable";
 import AboutMe from "@/components/AboutTutor/AboutMe";
 import Reviews from "@/components/AboutTutor/Reviews";
+import VideoPlayer from "@/components/AboutTutor/VideoPlayer";
 
 const AboutTutorCard = ({ tutor }) => {
   return (
     <Card className="w-full border-none p-0">
+      <VideoPlayer src={tutor.videoUrl} />
       <CardHeader className="flex items-center space-x-4 px-4 py-4">
         <img
           src={tutor.image}

@@ -4,38 +4,46 @@ import { useRef, useState } from "react";
 import { Play, Pause, Maximize } from "lucide-react";
 
 const VideoPlayer = ({ src }) => {
-  const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
-    if (videoRef.current) {
+    const iframe = document.querySelector('iframe');
+    if (iframe) {
+      const player = iframe.contentWindow;
       if (isPlaying) {
-        videoRef.current.pause();
+        player.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
       } else {
-        videoRef.current.play();
+        player.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
       }
-      setIsPlaying(!isPlaying);
     }
+    setIsPlaying(!isPlaying);
   };
 
   const handleFullScreen = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
+    const iframe = document.querySelector('iframe');
+    if (iframe) {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
       }
     }
   };
 
+  const videoId = src.split('youtu.be/')[1]?.split('?')[0]; // Extract video ID from URL
+
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="relative w-full rounded-lg overflow-hidden">
-        <video
-          ref={videoRef}
-          src={src}
-          className="w-full h-auto rounded-lg"
-          controls={false} // Hides default controls
+      <div className="relative w-full h-[200px] rounded-lg overflow-hidden border border-gray-300">
+        {/* Embed the YouTube video using an iframe */}
+        <iframe
+          width="100%"
+          height="100%"
+          src={`https://www.youtube.com/embed/${videoId}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="rounded-lg"
         />
-        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-0 hover:opacity-100 transition-opacity">
+        {/* Button container */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 opacity-100 transition-opacity">
           <button
             className="bg-white p-3 rounded-full shadow-md"
             onClick={togglePlay}

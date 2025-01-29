@@ -19,7 +19,7 @@ export default function ScheduleHeader() {
 
   return (
     <header 
-      className={"px-4 py-2 flex items-center fixed w-full bg-white z-20"}
+      className={"px-4 py-2 flex items-center fixed w-full bg-white z-20 top-0"}
     >
         <button onClick={handleBackClick} className="w-1/5">
             <ArrowLeft className="h-6 w-6" />
